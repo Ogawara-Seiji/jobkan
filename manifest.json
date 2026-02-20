@@ -1,0 +1,23 @@
+{
+  "name": "Work-hour Mismatch Highlighter",
+  "description": "総労働時間と工数合計が一致しない行をハイライトします。",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "permissions": ["storage"],
+  "host_permissions": ["https://ssl.jobcan.jp/employee/man-hour-manage"],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    },
+    "default_popup": "popup/popup.html",
+    "default_title": "ハイライト色を選択"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://ssl.jobcan.jp/employee/man-hour-manage"],
+      "js": ["content-script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
